@@ -17,7 +17,7 @@ namespace FRQVS
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrqvsDlg());
+            Application.Run(new KsDlg());
         }
     }
 }

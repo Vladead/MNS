@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FRQVS
 {
-    public partial class FrqvsDlg : Form
+    public partial class KsDlg : Form
     {
-        public FrqvsDlg()
+        public KsDlg()
         {
             InitializeComponent();
         }
