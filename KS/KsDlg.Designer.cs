@@ -34,7 +34,7 @@ namespace KS
             this.описаниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ID_CONS = new System.Windows.Forms.ToolStripMenuItem();
             this.ID_FILE = new System.Windows.Forms.ToolStripMenuItem();
-            this.редактированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ID_RED = new System.Windows.Forms.ToolStripMenuItem();
             this.директивыРасчетаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видЧастотнойХарактеристикиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вхвыхУзлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +61,7 @@ namespace KS
             // 
             this.менюToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.описаниеToolStripMenuItem,
-            this.редактированиеToolStripMenuItem,
+            this.ID_RED,
             this.директивыРасчетаToolStripMenuItem,
             this.ID_CALC,
             this.видToolStripMenuItem,
@@ -83,21 +83,22 @@ namespace KS
             // ID_CONS
             // 
             this.ID_CONS.Name = "ID_CONS";
-            this.ID_CONS.Size = new System.Drawing.Size(180, 22);
+            this.ID_CONS.Size = new System.Drawing.Size(177, 22);
             this.ID_CONS.Text = "Ввод с клавиатуры";
             this.ID_CONS.Click += new System.EventHandler(this.ID_CONS_Click);
             // 
             // ID_FILE
             // 
             this.ID_FILE.Name = "ID_FILE";
-            this.ID_FILE.Size = new System.Drawing.Size(180, 22);
+            this.ID_FILE.Size = new System.Drawing.Size(177, 22);
             this.ID_FILE.Text = "Ввод из файла";
             // 
-            // редактированиеToolStripMenuItem
+            // ID_RED
             // 
-            this.редактированиеToolStripMenuItem.Name = "редактированиеToolStripMenuItem";
-            this.редактированиеToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.редактированиеToolStripMenuItem.Text = "Редактирование";
+            this.ID_RED.Name = "ID_RED";
+            this.ID_RED.Size = new System.Drawing.Size(181, 22);
+            this.ID_RED.Text = "Редактирование";
+            this.ID_RED.Click += new System.EventHandler(this.ID_RED_Click);
             // 
             // директивыРасчетаToolStripMenuItem
             // 
@@ -182,7 +183,7 @@ namespace KS
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem менюToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem описаниеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem редактированиеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ID_RED;
         private System.Windows.Forms.ToolStripMenuItem директивыРасчетаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem видЧастотнойХарактеристикиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem вхвыхУзлыToolStripMenuItem;
