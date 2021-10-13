@@ -42,7 +42,7 @@ namespace KS
         {
             int i, j, g;
             float[,] w = new float[GlobalValues.nv, GlobalValues.nv];
-            StreamWriter sr = new StreamWriter("C:\\Users\\vlade\\Downloads\\Output.txt");
+            StreamWriter sr = new StreamWriter("C:\\Users\\vlade\\Downloads\\Output.docx");
             sr.Write("kr l i m j g w[i,j] \n");
             for (int kr = 1; kr <= GlobalValues.nr; kr++)
                 for (int l = 0; l <= 1; l++)
