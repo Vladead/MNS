@@ -19,6 +19,8 @@ namespace KS
         {
             GlobalValues.nv = Int32.Parse(m_nv.Text);
             GlobalValues.nr = Int32.Parse(m_nr.Text);
+            //GlobalValues.nc = Int32.Parse(m_nc.Text);
+            //GlobalValues.nl = Int32.Parse(m_nl.Text);
             Close();
         }
     }

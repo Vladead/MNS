@@ -15,6 +15,7 @@ namespace KS
         public static int[,] in_l = new int[MR + 1, 2];
         public static float[] z_l = new float[MR + 1];
         public static float[] f = new float[MF + 1];
+        //public static float[,] w = new float[nv, nv];
         public static string filename;
         public static bool flag = false;
 

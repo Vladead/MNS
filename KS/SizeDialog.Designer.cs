@@ -34,9 +34,9 @@ namespace KS
             this.m_nr = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.m_nl = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.m_nc = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -92,7 +92,7 @@ namespace KS
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 15);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Разисторы";
+            this.label2.Text = "Резисторы";
             // 
             // label3
             // 
@@ -103,13 +103,13 @@ namespace KS
             this.label3.TabIndex = 7;
             this.label3.Text = "Индуктивности";
             // 
-            // textBox2
+            // m_nl
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 99);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PlaceholderText = "0";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 6;
+            this.m_nl.Location = new System.Drawing.Point(12, 99);
+            this.m_nl.Name = "m_nl";
+            this.m_nl.PlaceholderText = "0";
+            this.m_nl.Size = new System.Drawing.Size(100, 23);
+            this.m_nl.TabIndex = 6;
             // 
             // label4
             // 
@@ -120,13 +120,13 @@ namespace KS
             this.label4.TabIndex = 5;
             this.label4.Text = "Конденсаторы";
             // 
-            // textBox3
+            // m_nc
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 70);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PlaceholderText = "0";
-            this.textBox3.Size = new System.Drawing.Size(100, 23);
-            this.textBox3.TabIndex = 4;
+            this.m_nc.Location = new System.Drawing.Point(12, 70);
+            this.m_nc.Name = "m_nc";
+            this.m_nc.PlaceholderText = "0";
+            this.m_nc.Size = new System.Drawing.Size(100, 23);
+            this.m_nc.TabIndex = 4;
             // 
             // label5
             // 
@@ -335,9 +335,9 @@ namespace KS
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.m_nl);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.m_nc);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.m_nr);
             this.Controls.Add(this.label1);
@@ -356,9 +356,9 @@ namespace KS
         private System.Windows.Forms.TextBox m_nr;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox m_nl;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox m_nc;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label6;
