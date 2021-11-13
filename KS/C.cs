@@ -18,12 +18,12 @@ namespace KS
         private void IDC_NEXTC_BUTTON_Click(object sender, EventArgs e)
         {
             int i = int.Parse(m_nextC.Text);
-            GlobalValues.in_r[i, 0] = int.Parse(m_npc.Text);
-            GlobalValues.in_r[i, 1] = int.Parse(m_nmc.Text);
-            GlobalValues.z_r[i] = float.Parse(m_zc.Text);
+            GlobalValues.in_c[i, 0] = int.Parse(m_npc.Text);
+            GlobalValues.in_c[i, 1] = int.Parse(m_nmc.Text);
+            GlobalValues.z_c[i] = float.Parse(m_zc.Text);
             i++;
             m_nextC.Text = i.ToString();
-            if (i <= GlobalValues.nr)
+            if (i <= GlobalValues.nc)
             {
                 m_npc.Text = "0";
                 m_nmc.Text = "0";
