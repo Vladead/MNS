@@ -36,8 +36,8 @@ namespace KS
             this.ID_FILE = new System.Windows.Forms.ToolStripMenuItem();
             this.ID_RED = new System.Windows.Forms.ToolStripMenuItem();
             this.директивыРасчетаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.видЧастотнойХарактеристикиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.вхвыхУзлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ID_F = new System.Windows.Forms.ToolStripMenuItem();
+            this.ID_IO = new System.Windows.Forms.ToolStripMenuItem();
             this.ID_CALC = new System.Windows.Forms.ToolStripMenuItem();
             this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ID_PRIV = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,14 +83,14 @@ namespace KS
             // ID_CONS
             // 
             this.ID_CONS.Name = "ID_CONS";
-            this.ID_CONS.Size = new System.Drawing.Size(180, 22);
+            this.ID_CONS.Size = new System.Drawing.Size(177, 22);
             this.ID_CONS.Text = "Ввод с клавиатуры";
             this.ID_CONS.Click += new System.EventHandler(this.ID_CONS_Click);
             // 
             // ID_FILE
             // 
             this.ID_FILE.Name = "ID_FILE";
-            this.ID_FILE.Size = new System.Drawing.Size(180, 22);
+            this.ID_FILE.Size = new System.Drawing.Size(177, 22);
             this.ID_FILE.Text = "Ввод из файла";
             this.ID_FILE.Click += new System.EventHandler(this.ID_FILE_Click);
             // 
@@ -104,23 +104,25 @@ namespace KS
             // директивыРасчетаToolStripMenuItem
             // 
             this.директивыРасчетаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.видЧастотнойХарактеристикиToolStripMenuItem,
-            this.вхвыхУзлыToolStripMenuItem});
+            this.ID_F,
+            this.ID_IO});
             this.директивыРасчетаToolStripMenuItem.Name = "директивыРасчетаToolStripMenuItem";
             this.директивыРасчетаToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.директивыРасчетаToolStripMenuItem.Text = "Директивы расчета";
             // 
-            // видЧастотнойХарактеристикиToolStripMenuItem
+            // ID_F
             // 
-            this.видЧастотнойХарактеристикиToolStripMenuItem.Name = "видЧастотнойХарактеристикиToolStripMenuItem";
-            this.видЧастотнойХарактеристикиToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-            this.видЧастотнойХарактеристикиToolStripMenuItem.Text = "Вид частотной характеристики";
+            this.ID_F.Name = "ID_F";
+            this.ID_F.Size = new System.Drawing.Size(244, 22);
+            this.ID_F.Text = "Вид частотной характеристики";
+            this.ID_F.Click += new System.EventHandler(this.ID_F_Click);
             // 
-            // вхвыхУзлыToolStripMenuItem
+            // ID_IO
             // 
-            this.вхвыхУзлыToolStripMenuItem.Name = "вхвыхУзлыToolStripMenuItem";
-            this.вхвыхУзлыToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-            this.вхвыхУзлыToolStripMenuItem.Text = "Вх/вых узлы";
+            this.ID_IO.Name = "ID_IO";
+            this.ID_IO.Size = new System.Drawing.Size(244, 22);
+            this.ID_IO.Text = "Вх/вых узлы";
+            this.ID_IO.Click += new System.EventHandler(this.ID_IO_Click);
             // 
             // ID_CALC
             // 
@@ -186,8 +188,8 @@ namespace KS
         private System.Windows.Forms.ToolStripMenuItem описаниеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ID_RED;
         private System.Windows.Forms.ToolStripMenuItem директивыРасчетаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem видЧастотнойХарактеристикиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem вхвыхУзлыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ID_F;
+        private System.Windows.Forms.ToolStripMenuItem ID_IO;
         private System.Windows.Forms.ToolStripMenuItem ID_CALC;
         private System.Windows.Forms.ToolStripMenuItem видToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ID_PRIV;

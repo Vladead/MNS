@@ -72,6 +72,7 @@ namespace KS
             //...
             fout.Close();
         }
+
         public void filein(String filename)      //Ввод описания схемы из файла
         {
             StreamReader fin = new StreamReader(GlobalValues.filename);
