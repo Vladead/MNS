@@ -54,6 +54,16 @@ namespace KS
                 ir.ShowDialog(this);
                 ir.Dispose();
             }
+
+            DialogResult res = MessageBox.Show("Выводить описание схемы в файл?",
+                "Вывод в файл", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                FILE ofile = new FILE();
+                GlobalValues.k = 0;
+                ofile.ShowDialog(this);
+                ofile.Dispose();
+            }
         }
 
         private void ID_RED_Click(object sender, EventArgs e)
@@ -61,6 +71,22 @@ namespace KS
             RED red = new RED();
             red.ShowDialog(this);
             red.Dispose();
+        }
+
+        private void ID_FILE_Click(object sender, EventArgs e)
+        {
+            GlobalValues.k = 1;
+            FILE file = new FILE();
+            try
+            {
+                file.ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            file.Dispose();
         }
     }
 }
