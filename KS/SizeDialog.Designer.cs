@@ -94,7 +94,7 @@ namespace KS
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 15);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Разисторы";
+            this.label2.Text = "Резисторы";
             // 
             // label3
             // 

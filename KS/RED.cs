@@ -94,15 +94,54 @@ namespace KS
                     m_nm2.Text = GlobalValues.in_r[GlobalValues.k, 1].ToString();
                     m_z1.Text = GlobalValues.z_r[GlobalValues.k].ToString();
                     break;
+                case 1:
+                    m_np2.Text = GlobalValues.in_c[GlobalValues.k, 0].ToString();
+                    m_nm2.Text = GlobalValues.in_c[GlobalValues.k, 1].ToString();
+                    m_z1.Text = GlobalValues.z_c[GlobalValues.k].ToString();
+                    break;
+                case 2:
+                    m_np2.Text = GlobalValues.in_l[GlobalValues.k, 0].ToString();
+                    m_nm2.Text = GlobalValues.in_l[GlobalValues.k, 1].ToString();
+                    m_z1.Text = GlobalValues.z_l[GlobalValues.k].ToString();
+                    break;
                     //...
-                    OK.Focus();
             }
-
+            OK.Focus();
         }
 
         private void OK_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void IDC_IN_BUTTON_Click(object sender, EventArgs e)
+        {
+            int idx = m_redlst.SelectedIndex;
+            switch (idx)
+            {
+                case 0:
+                    GlobalValues.in_r[GlobalValues.k, 0] = Int32.Parse(m_np2.Text);
+                    GlobalValues.in_r[GlobalValues.k, 1] = Int32.Parse(m_nm2.Text);
+                    GlobalValues.z_r[GlobalValues.k] = Single.Parse(m_z1.Text);
+                    break;
+                case 1:
+                    GlobalValues.in_c[GlobalValues.k, 0] = Int32.Parse(m_np2.Text);
+                    GlobalValues.in_c[GlobalValues.k, 1] = Int32.Parse(m_nm2.Text);
+                    GlobalValues.z_c[GlobalValues.k] = Single.Parse(m_z1.Text);
+                    break;
+                case 2:
+                    GlobalValues.in_l[GlobalValues.k, 0] = Int32.Parse(m_np2.Text);
+                    GlobalValues.in_l[GlobalValues.k, 1] = Int32.Parse(m_nm2.Text);
+                    GlobalValues.z_l[GlobalValues.k] = Single.Parse(m_z1.Text);
+                    break;
+                    //...
+            }
+            OK.Focus();
+        }
+
+        private void m_redlst_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

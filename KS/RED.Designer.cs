@@ -257,6 +257,7 @@ namespace KS
             this.m_redlst.Name = "m_redlst";
             this.m_redlst.Size = new System.Drawing.Size(184, 259);
             this.m_redlst.TabIndex = 23;
+            this.m_redlst.SelectedIndexChanged += new System.EventHandler(this.m_redlst_SelectedIndexChanged);
             this.m_redlst.DoubleClick += new System.EventHandler(this.m_redlst_DoubleClick);
             // 
             // IDC_OUT_BUTTON
@@ -277,6 +278,7 @@ namespace KS
             this.IDC_IN_BUTTON.TabIndex = 25;
             this.IDC_IN_BUTTON.Text = "Ввод описания";
             this.IDC_IN_BUTTON.UseVisualStyleBackColor = true;
+            this.IDC_IN_BUTTON.Click += new System.EventHandler(this.IDC_IN_BUTTON_Click);
             // 
             // OK
             // 
