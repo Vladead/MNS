@@ -59,6 +59,8 @@ namespace KS
                 ofile.ShowDialog(this);
                 ofile.Dispose();
             }
+            FormElement formElement = new FormElement();
+            formElement.form_d(ref GlobalValues.in_r, GlobalValues.z_r, GlobalValues.nr, 'R');
 
             F f = new F();
             f.ShowDialog(this);
