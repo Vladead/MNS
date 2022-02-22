@@ -17,11 +17,6 @@ namespace KS
             InitializeComponent();
         }
 
-        private void ID_PRIV_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ID_EXIT_Click(object sender, EventArgs e)
         {
             Close();
@@ -114,6 +109,28 @@ namespace KS
             IO io = new IO();
             io.ShowDialog(this);
             io.Dispose();
+        }
+
+        private void ID_SYS_Click(object sender, EventArgs e)
+        {
+            GlobalValues.flag = true;
+        }
+
+        private void ID_PRIV_Click(object sender, EventArgs e)
+        {
+            GlobalValues.flag = false;
+        }
+
+        private void ID_INTERNET_Click(object sender, EventArgs e)
+        {
+            if (!GlobalValues.flag)
+            {
+                INT cint = new INT();
+                cint.Show(this);
+            } else
+            {
+                System.Diagnostics.Process.Start("C:\\Program Files\\Mozilla Firefox\\firefox.exe", "http://127.0.0.1/MF/Int3d.htm");
+            }
         }
     }
 }
