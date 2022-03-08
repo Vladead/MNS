@@ -61,6 +61,8 @@ namespace KS
             }
             FormElement formElement = new FormElement();
             formElement.form_d(ref GlobalValues.in_r, GlobalValues.z_r, GlobalValues.nr, 'R');
+            formElement.form_d(ref GlobalValues.in_l, GlobalValues.z_l, GlobalValues.nl, 'L');
+            formElement.form_d(ref GlobalValues.in_c, GlobalValues.z_c, GlobalValues.nc, 'C');
 
             F f = new F();
             f.ShowDialog(this);
