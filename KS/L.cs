@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
 
@@ -18,9 +19,9 @@ namespace KS
         private void IDC_NEXTL_BUTTON_Click(object sender, EventArgs e)
         {
             int i = int.Parse(m_nextL.Text);
-            GlobalValues.in_l[i, 0] = int.Parse(m_npl.Text);
-            GlobalValues.in_l[i, 1] = int.Parse(m_nml.Text);
-            GlobalValues.z_l[i] = float.Parse(m_zl.Text);
+            GlobalValues.in_l[i, 0] = Convert.ToInt32(m_npl.Text, CultureInfo.InvariantCulture);
+            GlobalValues.in_l[i, 1] = Convert.ToInt32(m_nml.Text, CultureInfo.InvariantCulture);
+            GlobalValues.z_l[i] = Convert.ToSingle(m_zl.Text, CultureInfo.InvariantCulture);
             i++;
             m_nextL.Text = i.ToString();
             if (i <= GlobalValues.nl)

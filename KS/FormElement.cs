@@ -5,6 +5,7 @@
         public void form_d(ref int[,] in_d, float[] z_d, int nd, char td)
         {
             int i, j, g;
+            GlobalValues.s = 0.16;
             for (int kd = 1; kd <= nd; kd++)
             {
                 for (int l = 0; l <= 1; l++)
