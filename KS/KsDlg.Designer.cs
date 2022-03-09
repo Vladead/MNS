@@ -129,6 +129,7 @@ namespace KS
             this.ID_CALC.Name = "ID_CALC";
             this.ID_CALC.Size = new System.Drawing.Size(181, 22);
             this.ID_CALC.Text = "Расчет";
+            this.ID_CALC.Click += new System.EventHandler(this.ID_CALC_Click);
             // 
             // видToolStripMenuItem
             // 

@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿
+using FRQVS;
 
 namespace KS
 {
@@ -18,6 +19,9 @@ namespace KS
         public static Complex[,] w = new Complex[M + 1, M + 1];
         public static string filename;
         public static bool flag = false;
-
+        public static float [,] a= new float [M+1,M+1];
+        public static float [,] b= new float [M+1,M+1];
+        public static float om;
+        public static int n;
     }
 }

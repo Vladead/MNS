@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace KS
@@ -46,37 +47,38 @@ namespace KS
             switch (m_f)
             {
                 case 0:
-                    GlobalValues.f[1] = Single.Parse(IDC_F1.Text);
+                    GlobalValues.f[1] = Convert.ToSingle(IDC_F1.Text, CultureInfo.InvariantCulture);
                     GlobalValues.nf = 1;
                     break;
                 case 1:
-                    fmin = GlobalValues.f[1] = Single.Parse(IDC_F1.Text);
-                    fmax = Single.Parse(IDC_F2.Text);
-                    df = Single.Parse(IDC_F3.Text);
+                    fmin = GlobalValues.f[1] = Convert.ToSingle(IDC_F1.Text, CultureInfo.InvariantCulture);
+                    fmax = Convert.ToSingle(IDC_F2.Text, CultureInfo.InvariantCulture);
+                    df = Convert.ToSingle(IDC_F3.Text, CultureInfo.InvariantCulture);
                     kf = 1;
                     while (GlobalValues.f[kf] < fmax)
                     {
                         GlobalValues.f[kf + 1] = GlobalValues.f[kf] + df;
                         kf = kf + 1;
                     }
+
                     GlobalValues.nf = kf;
                     break;
                 case 2:
-                    GlobalValues.f[1] = Single.Parse(IDC_F1.Text);
-                    fmax = Single.Parse(IDC_F2.Text);
-                    kk = Single.Parse(IDC_F3.Text);
+                    GlobalValues.f[1] = Convert.ToSingle(IDC_F1.Text, CultureInfo.InvariantCulture);
+                    fmax = Convert.ToSingle(IDC_F2.Text, CultureInfo.InvariantCulture);
+                    kk = Convert.ToSingle(IDC_F3.Text, CultureInfo.InvariantCulture);
                     kf = 1;
                     while (GlobalValues.f[kf] < fmax)
                     {
                         GlobalValues.f[kf + 1] = kk * GlobalValues.f[kf];
                         kf = kf + 1;
                     }
+
                     GlobalValues.nf = kf;
                     break;
             }
-            this.Close();
 
+            Close();
         }
     }
 }
-

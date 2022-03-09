@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace KS
@@ -59,10 +52,6 @@ namespace KS
                 ofile.ShowDialog(this);
                 ofile.Dispose();
             }
-            FormElement formElement = new FormElement();
-            formElement.form_d(ref GlobalValues.in_r, GlobalValues.z_r, GlobalValues.nr, 'R');
-            formElement.form_d(ref GlobalValues.in_l, GlobalValues.z_l, GlobalValues.nl, 'L');
-            formElement.form_d(ref GlobalValues.in_c, GlobalValues.z_c, GlobalValues.nc, 'C');
 
             F f = new F();
             f.ShowDialog(this);
@@ -131,10 +120,35 @@ namespace KS
             {
                 INT cint = new INT();
                 cint.Show(this);
-            } else
+            }
+            else
             {
                 System.Diagnostics.Process.Start("C:\\Program Files\\Mozilla Firefox\\firefox.exe", "http://127.0.0.1/MF/Int3d.htm");
             }
+        }
+
+        private void ID_CALC_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= GlobalValues.M; i++)
+                //Обнуление массивов a и b
+                for (int j = 0; j <= GlobalValues.M; j++)
+                {
+                    GlobalValues.a[i, j] = 0;
+                    GlobalValues.b[i, j] = 0;
+                }
+            GlobalValues.n = GlobalValues.nv;
+            for (int kf = 1; kf <= GlobalValues.nf; kf++)
+            {
+                GlobalValues.om = (float)(2 * 3.141593 * GlobalValues.f[kf]);
+                FormElement.form1_d(ref GlobalValues.in_r, ref GlobalValues.z_r, GlobalValues.nr, 'R');
+                FormElement.form1_d(ref GlobalValues.in_c, ref GlobalValues.z_c, GlobalValues.nc, 'C');
+                FormElement.form1_d(ref GlobalValues.in_l, ref GlobalValues.z_l, GlobalValues.nl, 'L');
+                //…
+                FormElement.form_w();
+                var temp = GlobalValues.w;
+                //…
+            }
+
         }
     }
 }
