@@ -67,8 +67,26 @@ namespace KS
                 str = GV.in_l[i, 0].ToString() + " " + GV.in_l[i, 1].ToString() + " "
                     + GV.z_l[i].ToString();
                 fout.WriteLine(str);
-
             }
+            for (i = 1; i <= GV.nei; i++)
+            {
+                str = GV.in_ei[i, 0].ToString() + " " + GV.in_ei[i, 1].ToString() + " " + GV.in_ei[i, 2].ToString() + " " + GV.in_ei[i, 3].ToString()
+                    + " " + GV.z_ei[i].ToString();
+                fout.WriteLine(str);
+            }
+            for (i = 1; i <= GV.neu; i++)
+            {
+                str = GV.in_eu[i, 0].ToString() + " " + GV.in_eu[i, 1].ToString() + " " + GV.in_eu[i, 2].ToString() + " " + GV.in_eu[i, 3].ToString()
+                    + " " + GV.z_eu[i, 0].ToString() + " " + GV.z_eu[i, 1].ToString() + " " + GV.z_eu[i, 2].ToString();
+                fout.WriteLine(str);
+            }
+            for (i = 1; i <= GV.ntri; i++)
+            {
+                str = GV.in_tri[i, 0].ToString() + " " + GV.in_tri[i, 1].ToString() + " " + GV.in_tri[i, 2].ToString() + " " + GV.in_tri[i, 3].ToString()
+                    + " " + GV.z_tri[i].ToString();
+                fout.WriteLine(str);
+            }
+
             //...
             fout.Close();
         }
@@ -79,11 +97,14 @@ namespace KS
             char[] sep = { ' ' };
             string str = "";
             str = fin.ReadLine();
-            String[] s = str.Split(sep, 4);//Значение второго аргумента!!!
+            String[] s = str.Split(sep, 7);//Значение второго аргумента!!!
             GV.nv = Int32.Parse(s[0]);
             GV.nr = Int32.Parse(s[1]);
             GV.nc = Int32.Parse(s[2]);
             GV.nl = Int32.Parse(s[3]);
+            GV.nei = Int32.Parse(s[4]);
+            GV.neu = Int32.Parse(s[5]);
+            GV.ntri = Int32.Parse(s[6]);
 
             for (int i = 1; i <= GV.nr; i++)
             {
@@ -108,6 +129,38 @@ namespace KS
                 GV.in_l[i, 0] = Int32.Parse(s[0]);
                 GV.in_l[i, 1] = Int32.Parse(s[1]);
                 GV.z_l[i] = Single.Parse(s[2]);
+            }
+            for (int i = 1; i <= GV.nei; i++)
+            {
+                str = fin.ReadLine();
+                s = str.Split(sep, 5);
+                GV.in_ei[i, 0] = Int32.Parse(s[0]);
+                GV.in_ei[i, 1] = Int32.Parse(s[1]);
+                GV.in_ei[i, 2] = Int32.Parse(s[2]);
+                GV.in_ei[i, 3] = Int32.Parse(s[3]);
+                GV.z_ei[i] = Int32.Parse(s[4]);
+            }
+            for (int i = 1; i <= GV.neu; i++)
+            {
+                str = fin.ReadLine();
+                s = str.Split(sep, 7);
+                GV.in_eu[i, 0] = Int32.Parse(s[0]);
+                GV.in_eu[i, 1] = Int32.Parse(s[1]);
+                GV.in_eu[i, 2] = Int32.Parse(s[2]);
+                GV.in_eu[i, 3] = Int32.Parse(s[3]);
+                GV.z_eu[i, 0] = Int32.Parse(s[4]);
+                GV.z_eu[i, 1] = Int32.Parse(s[5]);
+                GV.z_eu[i, 2] = Int32.Parse(s[6]);
+            }
+            for (int i = 1; i <= GV.ntri; i++)
+            {
+                str = fin.ReadLine();
+                s = str.Split(sep, 5);
+                GV.in_tri[i, 0] = Int32.Parse(s[0]);
+                GV.in_tri[i, 1] = Int32.Parse(s[1]);
+                GV.in_tri[i, 2] = Int32.Parse(s[2]);
+                GV.in_tri[i, 3] = Int32.Parse(s[3]);
+                GV.z_tri[i] = Int32.Parse(s[4]);
             }
 
             fin.Close();

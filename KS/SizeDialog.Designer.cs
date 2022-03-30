@@ -40,13 +40,13 @@ namespace KS
             this.label5 = new System.Windows.Forms.Label();
             this.m_ei = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.m_ji = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.m_eu = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.m_ju = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.m_tri = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -159,14 +159,14 @@ namespace KS
             this.label6.TabIndex = 13;
             this.label6.Text = "ИТУТ";
             // 
-            // textBox5
+            // m_ji
             // 
-            this.textBox5.Location = new System.Drawing.Point(12, 186);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.PlaceholderText = "0";
-            this.textBox5.Size = new System.Drawing.Size(100, 23);
-            this.textBox5.TabIndex = 12;
-            this.textBox5.Text = "0";
+            this.m_ji.Location = new System.Drawing.Point(12, 186);
+            this.m_ji.Name = "m_ji";
+            this.m_ji.PlaceholderText = "0";
+            this.m_ji.Size = new System.Drawing.Size(100, 23);
+            this.m_ji.TabIndex = 12;
+            this.m_ji.Text = "0";
             // 
             // label7
             // 
@@ -177,14 +177,14 @@ namespace KS
             this.label7.TabIndex = 11;
             this.label7.Text = "ИНУН";
             // 
-            // textBox6
+            // m_eu
             // 
-            this.textBox6.Location = new System.Drawing.Point(12, 157);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.PlaceholderText = "0";
-            this.textBox6.Size = new System.Drawing.Size(100, 23);
-            this.textBox6.TabIndex = 10;
-            this.textBox6.Text = "0";
+            this.m_eu.Location = new System.Drawing.Point(12, 157);
+            this.m_eu.Name = "m_eu";
+            this.m_eu.PlaceholderText = "0";
+            this.m_eu.Size = new System.Drawing.Size(100, 23);
+            this.m_eu.TabIndex = 10;
+            this.m_eu.Text = "0";
             // 
             // label8
             // 
@@ -213,14 +213,14 @@ namespace KS
             this.label9.TabIndex = 27;
             this.label9.Text = "Ид. трансформаторы";
             // 
-            // textBox8
+            // m_tri
             // 
-            this.textBox8.Location = new System.Drawing.Point(265, 160);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.PlaceholderText = "0";
-            this.textBox8.Size = new System.Drawing.Size(100, 23);
-            this.textBox8.TabIndex = 26;
-            this.textBox8.Text = "0";
+            this.m_tri.Location = new System.Drawing.Point(265, 160);
+            this.m_tri.Name = "m_tri";
+            this.m_tri.PlaceholderText = "0";
+            this.m_tri.Size = new System.Drawing.Size(100, 23);
+            this.m_tri.TabIndex = 26;
+            this.m_tri.Text = "0";
             // 
             // label10
             // 
@@ -329,7 +329,7 @@ namespace KS
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.m_tri);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label11);
@@ -343,9 +343,9 @@ namespace KS
             this.Controls.Add(this.label5);
             this.Controls.Add(this.m_ei);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.m_ji);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.m_eu);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.m_ju);
             this.Controls.Add(this.label3);
@@ -376,13 +376,13 @@ namespace KS
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox m_ei;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox m_ji;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox m_eu;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox m_ju;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox m_tri;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label11;

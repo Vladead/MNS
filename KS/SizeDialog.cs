@@ -23,6 +23,9 @@ namespace KS
             GV.nl = Int32.Parse(m_nl.Text);
             GV.nju = Int32.Parse(m_ju.Text);
             GV.nei = Int32.Parse(m_ei.Text);
+            GV.nji = Int32.Parse(m_ji.Text);
+            GV.ntri = Int32.Parse(m_tri.Text);
+            GV.neu = Int32.Parse(m_eu.Text);
             Close();
         }
     }

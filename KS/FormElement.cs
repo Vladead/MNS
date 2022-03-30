@@ -95,7 +95,7 @@ namespace KS
             }
         }
 
-        public void form_tri()
+        public static void form_tri()
         {
             int i, j, g;
             for (int ktri = 1; ktri <= GV.ntri; ktri++)
@@ -122,7 +122,7 @@ namespace KS
             GV.n += GV.ntri;
         }
 
-        public void form_tr()
+        public static void form_tr()
         {
             int i1, i2, j, g;
             for (int ktr = 1; ktr <= GV.ntr; ktr++)
@@ -155,7 +155,7 @@ namespace KS
         }
 
         //Формирование комплексных частных матриц ИТУН 
-        void form_ju()
+        public static void form_ju()
         {
             int i, j, g;
             for (int kju = 1; kju <= GV.nju; kju++)
@@ -174,7 +174,7 @@ namespace KS
         }
 
         //Формирование комплексных частных матриц ИНУТ
-        void form_ei()
+        public static void form_ei()
         {
             int i1, i2, j, g;
             for (int kei = 1; kei <= GV.nei; kei++)
@@ -201,6 +201,62 @@ namespace KS
                 }
             }
             GV.n += 2 * GV.nei;
+        }
+
+        //Формирование комплексных частных матриц ИТУТ
+        public static void form_ji()
+        {
+            int i, j, g;
+            for (int kji = 1; kji <= GV.nji; kji++)
+            {
+                j = GV.n + kji;
+                for (int l = 0; l <= 3; l++)
+                {
+                    i = GV.in_ji[kji, l];
+                    if (i == 0) continue;
+                    if (l < 2)
+                    {
+                        g = l - 2 * l;
+                        GV.w[i, j] = GV.w[i, j] + g;
+                        GV.w[j, j] -= g;
+                    }
+                    else
+                    {
+                        g = 5 - 2 * l;
+                        GV.w[i, j] += g * GV.z_ji[kji];
+                    }
+                }
+            }
+            GV.n += GV.nji;
+        }
+
+        // ИНУН
+        public static void form_eu()
+        {
+            int i, j, g;
+            for (int keu = 1; keu <= GV.neu; keu++)
+            {
+                i = GV.n + keu;
+                for (int m = 0; m <= 3; m++)
+                {
+                    j = GV.in_eu[keu, m];
+                    if (j == 0) continue;
+                    if (m < 2)
+                    {
+                        g = 1 - 2 * m;
+                        GV.a[i, j] += g * GV.z_eu[keu, 0];
+                        GV.b[i, j] += g * GV.z_eu[keu, 0] * GV.z_eu[keu, 1];
+                    }
+                    else
+                    {
+                        g = 5 - 2 * m;
+                        GV.a[i, j] -= g;
+                        GV.a[j, i] += g;
+                        GV.b[i, j] -= g * GV.z_eu[keu, 2];
+                    }
+                }
+            }
+            GV.n += GV.neu;
         }
     }
 }

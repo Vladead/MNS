@@ -54,6 +54,24 @@ namespace KS
                 ju.ShowDialog(this);
                 ju.Dispose();
             }
+            if (GV.nji > 0)
+            {
+                JI ji = new JI();
+                ji.ShowDialog(this);
+                ji.Dispose();
+            }
+            if (GV.ntri > 0)
+            {
+                TRI tri = new TRI();
+                tri.ShowDialog(this);
+                tri.Dispose();
+            }
+            if (GV.neu > 0)
+            {
+                EU eu = new EU();
+                eu.ShowDialog(this);
+                eu.Dispose();
+            }
 
             DialogResult res = MessageBox.Show("Выводить описание схемы в файл?",
                 "Вывод в файл", MessageBoxButtons.YesNo);
@@ -155,6 +173,9 @@ namespace KS
                 FormElement.form1_d(ref GV.in_r, ref GV.z_r, GV.nr, 'R');
                 FormElement.form1_d(ref GV.in_c, ref GV.z_c, GV.nc, 'C');
                 FormElement.form1_d(ref GV.in_l, ref GV.z_l, GV.nl, 'L');
+                FormElement.form_ei();
+                FormElement.form_eu();
+                FormElement.form_tri();
                 
                 //…
                 FormElement.form_w();
