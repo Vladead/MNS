@@ -28,6 +28,7 @@ namespace KS
                 ir.ShowDialog(this);
                 ir.Dispose();
             }
+
             // Вызов диалоговой панели C
             if (GV.nc > 0)
             {
@@ -35,6 +36,7 @@ namespace KS
                 ir.ShowDialog(this);
                 ir.Dispose();
             }
+
             // Вызов диалоговой панели L
             if (GV.nl > 0)
             {
@@ -42,30 +44,35 @@ namespace KS
                 ir.ShowDialog(this);
                 ir.Dispose();
             }
+
             if (GV.nei > 0)
             {
                 EI ei = new EI();
                 ei.ShowDialog(this);
                 ei.Dispose();
             }
+
             if (GV.nju > 0)
             {
                 JU ju = new JU();
                 ju.ShowDialog(this);
                 ju.Dispose();
             }
+
             if (GV.nji > 0)
             {
                 JI ji = new JI();
                 ji.ShowDialog(this);
                 ji.Dispose();
             }
+
             if (GV.ntri > 0)
             {
                 TRI tri = new TRI();
                 tri.ShowDialog(this);
                 tri.Dispose();
             }
+
             if (GV.neu > 0)
             {
                 EU eu = new EU();
@@ -111,6 +118,7 @@ namespace KS
                 MessageBox.Show(ex.Message);
                 return;
             }
+
             file.Dispose();
             F f = new F();
             f.ShowDialog(this);
@@ -153,33 +161,32 @@ namespace KS
             }
             else
             {
-                System.Diagnostics.Process.Start("C:\\Program Files\\Mozilla Firefox\\firefox.exe", "http://127.0.0.1/MF/Int3d.htm");
+                System.Diagnostics.Process.Start("C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+                    "http://127.0.0.1/MF/Int3d.htm");
             }
         }
 
         private void ID_CALC_Click(object sender, EventArgs e)
         {
             for (int i = 0; i <= GV.M; i++)
-                //Обнуление массивов a и b
-                for (int j = 0; j <= GV.M; j++)
-                {
-                    GV.a[i, j] = 0;
-                    GV.b[i, j] = 0;
-                }
+                //Обнуление массива w
+            for (int j = 0; j <= GV.M; j++)
+            {
+                GV.w[i, j] = new FRQVS.Complex();
+            }
+
             GV.n = GV.nv;
             for (int kf = 1; kf <= GV.nf; kf++)
             {
-                GV.om = (float)(2 * 3.141593 * GV.f[kf]);
-                FormElement.form1_d(ref GV.in_r, ref GV.z_r, GV.nr, 'R');
-                FormElement.form1_d(ref GV.in_c, ref GV.z_c, GV.nc, 'C');
-                FormElement.form1_d(ref GV.in_l, ref GV.z_l, GV.nl, 'L');
+                GV.s = new FRQVS.Complex(0.0, 2 * 3.141593 * GV.f[kf]);
+                FormElement.form_d(ref GV.in_r, GV.z_r, GV.nr, 'R');
+                FormElement.form_d(ref GV.in_c, GV.z_c, GV.nc, 'C');
+                FormElement.form_d(ref GV.in_l, GV.z_l, GV.nl, 'L');
                 FormElement.form_ei();
                 FormElement.form_eu();
                 FormElement.form_tri();
-                
-                //…
-                FormElement.form_w();
-                
+                FormElement.form_s();
+
                 if ((GV.lp == 1) && (GV.lm == 0) && (GV.kp == 2) && (GV.km == 0))
                 {
                     SF.st();
@@ -198,13 +205,14 @@ namespace KS
             richTextBox1.AppendText(str + "\r\n");
             if ((GV.lp == 1) && (GV.lm == 0) && (GV.kp == 2) && (GV.km == 0))
             {
-                str = String.Format("{0,-12}{1,-12}{2,-12}{3,-12}{4,-12}{5,-12}{6,-12}", "f кГц", "kum", "kua", "rim", "ria", "rom", "roa");
+                str = String.Format("{0,-12}{1,-12}{2,-12}{3,-12}{4,-12}{5,-12}{6,-12}", "f кГц", "kum", "kua", "rim",
+                    "ria", "rom", "roa");
                 richTextBox1.AppendText(str + "\r\n");
                 for (int kf = 1; kf <= GV.nf; kf++)
                 {
                     str = String.Format("{0,-12:F2}{1,-12:E2}{2,-12:F2}{3,-12:E2}{4,-12:F2}{5,-12:E2}{6,-12:F2}",
-                    GV.f[kf], GV.kum[kf], GV.kua[kf], GV.rim[kf],
-                    GV.ria[kf], GV.rom[kf], GV.roa[kf]);
+                        GV.f[kf], GV.kum[kf], GV.kua[kf], GV.rim[kf],
+                        GV.ria[kf], GV.rom[kf], GV.roa[kf]);
                     richTextBox1.AppendText(str + "\r\n");
                 }
             }
@@ -215,7 +223,7 @@ namespace KS
                 for (int kf = 1; kf <= GV.nf; kf++)
                 {
                     str = String.Format("{0,-12:F2}{1,-12:E2}{2,-12:F2}{3,-12:E2}{4,-12:F2}",
-                    GV.f[kf], GV.kum[kf], GV.kua[kf], GV.rim[kf], GV.ria[kf]);
+                        GV.f[kf], GV.kum[kf], GV.kua[kf], GV.rim[kf], GV.ria[kf]);
                     richTextBox1.AppendText(str + "\r\n");
                 }
             }

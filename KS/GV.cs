@@ -7,7 +7,7 @@ namespace KS
     {
         public static int M = 100, MR = 50, MC = 50, ML = 20, MF = 20,
             MJU = 20, MEU = 20, MJI = 20, MEI = 20, MTRI = 20, MOUI = 20, MTR = 20, MTB = 20, MTU = 20, MOU = 20;
-        public static int nv, nr, nc, nl, nf, ntri, ntr, nju, nei, nji, neu;
+        public static int nv, nr, nc, nl, nf, ntri, ntr, nju, nei, nji, neu, nou;
         public static int lp, lm, kp, km, k;
         public static int[,] in_r = new int[MR + 1, 2];
         public static float[] z_r = new float[MR + 1];

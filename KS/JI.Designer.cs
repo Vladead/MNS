@@ -34,17 +34,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.m_nextji = new System.Windows.Forms.TextBox();
             this.m_npji1 = new System.Windows.Forms.TextBox();
             this.m_nmji1 = new System.Windows.Forms.TextBox();
             this.m_npji2 = new System.Windows.Forms.TextBox();
             this.m_nmji2 = new System.Windows.Forms.TextBox();
             this.m_zy0 = new System.Windows.Forms.TextBox();
-            this.m_zt1 = new System.Windows.Forms.TextBox();
             this.IDC_NEXTJI_BUTTON = new System.Windows.Forms.Button();
-            this.m_zt2 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -101,15 +97,6 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "y0";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 209);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(19, 15);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "T1";
-            // 
             // m_nextji
             // 
             this.m_nextji.Location = new System.Drawing.Point(104, 23);
@@ -159,14 +146,6 @@
             this.m_zy0.TabIndex = 12;
             this.m_zy0.Text = "0";
             // 
-            // m_zt1
-            // 
-            this.m_zt1.Location = new System.Drawing.Point(104, 206);
-            this.m_zt1.Name = "m_zt1";
-            this.m_zt1.Size = new System.Drawing.Size(100, 23);
-            this.m_zt1.TabIndex = 13;
-            this.m_zt1.Text = "0";
-            // 
             // IDC_NEXTJI_BUTTON
             // 
             this.IDC_NEXTJI_BUTTON.Location = new System.Drawing.Point(104, 293);
@@ -177,39 +156,18 @@
             this.IDC_NEXTJI_BUTTON.UseVisualStyleBackColor = true;
             this.IDC_NEXTJI_BUTTON.Click += new System.EventHandler(this.IDC_NEXTJI_BUTTON_Click);
             // 
-            // m_zt2
-            // 
-            this.m_zt2.Location = new System.Drawing.Point(104, 235);
-            this.m_zt2.Name = "m_zt2";
-            this.m_zt2.Size = new System.Drawing.Size(100, 23);
-            this.m_zt2.TabIndex = 15;
-            this.m_zt2.Text = "0";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 238);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(19, 15);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "T2";
-            // 
             // JI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(238, 328);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.m_zt2);
+            this.ClientSize = new System.Drawing.Size(238, 339);
             this.Controls.Add(this.IDC_NEXTJI_BUTTON);
-            this.Controls.Add(this.m_zt1);
             this.Controls.Add(this.m_zy0);
             this.Controls.Add(this.m_nmji2);
             this.Controls.Add(this.m_npji2);
             this.Controls.Add(this.m_nmji1);
             this.Controls.Add(this.m_npji1);
             this.Controls.Add(this.m_nextji);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -231,16 +189,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox m_nextji;
         private System.Windows.Forms.TextBox m_npji1;
         private System.Windows.Forms.TextBox m_nmji1;
         private System.Windows.Forms.TextBox m_npji2;
         private System.Windows.Forms.TextBox m_nmji2;
         private System.Windows.Forms.TextBox m_zy0;
-        private System.Windows.Forms.TextBox m_zt1;
         private System.Windows.Forms.Button IDC_NEXTJI_BUTTON;
-        private System.Windows.Forms.TextBox m_zt2;
-        private System.Windows.Forms.Label label8;
     }
 }

@@ -47,7 +47,7 @@ namespace KS
             StreamWriter fout = new StreamWriter(GV.filename);
             String str = "";
             int i;
-            str = GV.nv.ToString() + " " + GV.nr.ToString() + " " + GV.nc.ToString() + " " + GV.nl.ToString();
+            str = GV.nv.ToString() + " " + GV.nr.ToString() + " " + GV.nc.ToString() + " " + GV.nl.ToString() + " " + GV.nei.ToString() + " " + GV.neu.ToString() + " " + GV.ntri.ToString();
 
             fout.WriteLine(str);
             for (i = 1; i <= GV.nr; i++)

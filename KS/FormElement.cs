@@ -21,7 +21,7 @@ namespace KS
                         switch (td)
                         {
                             case 'R':
-                                GV.w[i, j] += g / z_d[kd];
+                                GV.w[i, j] = GV.w[i, j] + g / z_d[kd];
                                 break;
                             case 'C':
                                 GV.w[i, j] += g * GV.s * z_d[kd];
@@ -40,26 +40,26 @@ namespace KS
             int i, j, l, m, g;
             if (td != 'L')
                 for (int kd = 1; kd <= nd; kd++)
-                    for (l = 0; l <= 1; l++)
+                for (l = 0; l <= 1; l++)
+                {
+                    i = in_d[kd, l];
+                    if (i == 0) continue;
+                    for (m = 0; m <= 1; m++)
                     {
-                        i = in_d[kd, l];
-                        if (i == 0) continue;
-                        for (m = 0; m <= 1; m++)
+                        j = in_d[kd, m];
+                        if (j == 0) continue;
+                        g = (1 - 2 * l) * (1 - 2 * m);
+                        switch (td)
                         {
-                            j = in_d[kd, m];
-                            if (j == 0) continue;
-                            g = (1 - 2 * l) * (1 - 2 * m);
-                            switch (td)
-                            {
-                                case 'R':
-                                    GV.a[i, j] += g / z_d[kd];
-                                    break;
-                                case 'C':
-                                    GV.b[i, j] += g * z_d[kd];
-                                    break;
-                            }
+                            case 'R':
+                                GV.a[i, j] += g / z_d[kd];
+                                break;
+                            case 'C':
+                                GV.b[i, j] += g * z_d[kd];
+                                break;
                         }
                     }
+                }
             else
             {
                 for (int kd = 1; kd <= nd; kd++)
@@ -119,6 +119,7 @@ namespace KS
                     }
                 }
             }
+
             GV.n += GV.ntri;
         }
 
@@ -151,6 +152,7 @@ namespace KS
                     }
                 }
             }
+
             GV.n += 2 * GV.ntr;
         }
 
@@ -159,18 +161,18 @@ namespace KS
         {
             int i, j, g;
             for (int kju = 1; kju <= GV.nju; kju++)
-                for (int l = 2; l <= 3; l++)
+            for (int l = 2; l <= 3; l++)
+            {
+                i = GV.in_ju[kju, l];
+                if (i == 0) continue;
+                for (int m = 0; m <= 1; m++)
                 {
-                    i = GV.in_ju[kju, l];
-                    if (i == 0) continue;
-                    for (int m = 0; m <= 1; m++)
-                    {
-                        j = GV.in_ju[kju, m];
-                        if (j == 0) continue;
-                        g = (5 - 2 * l) * (l - 2 * m);
-                        GV.w[i, j] += g * GV.z_ju[kju, 0];
-                    }
+                    j = GV.in_ju[kju, m];
+                    if (j == 0) continue;
+                    g = (5 - 2 * l) * (l - 2 * m);
+                    GV.w[i, j] += g * GV.z_ju[kju, 0];
                 }
+            }
         }
 
         //Формирование комплексных частных матриц ИНУТ
@@ -189,17 +191,18 @@ namespace KS
                     if (m < 2)
                     {
                         g = 1 - 2 * m;
-                        GV.w[i1, j] -= g;
-                        GV.w[j, i1] += g;
+                        GV.w[i1, j] = GV.w[i1, j] - g;
+                        GV.w[j, i1] = GV.w[j, i1] + g;
                     }
                     else
                     {
                         g = 5 - 2 * m;
-                        GV.w[i2, j] -= g;
-                        GV.w[j, i2] += g;
+                        GV.w[i2, j] = GV.w[i2, j] - g;
+                        GV.w[j, i2] = GV.w[j, i2] + g;
                     }
                 }
             }
+
             GV.n += 2 * GV.nei;
         }
 
@@ -227,15 +230,18 @@ namespace KS
                     }
                 }
             }
+
             GV.n += GV.nji;
         }
 
         // ИНУН
         public static void form_eu()
         {
+            Complex ms = new Complex(0, 0);
             int i, j, g;
             for (int keu = 1; keu <= GV.neu; keu++)
             {
+                ms = GV.z_eu[keu, 0] * (1 + GV.s * GV.z_eu[keu, 1]) / (1 + GV.s * GV.z_eu[keu, 2]);
                 i = GV.n + keu;
                 for (int m = 0; m <= 3; m++)
                 {
@@ -244,19 +250,28 @@ namespace KS
                     if (m < 2)
                     {
                         g = 1 - 2 * m;
-                        GV.a[i, j] += g * GV.z_eu[keu, 0];
-                        GV.b[i, j] += g * GV.z_eu[keu, 0] * GV.z_eu[keu, 1];
+                        GV.w[i, j] += g * ms;
                     }
                     else
                     {
                         g = 5 - 2 * m;
-                        GV.a[i, j] -= g;
-                        GV.a[j, i] += g;
-                        GV.b[i, j] -= g * GV.z_eu[keu, 2];
+                        GV.w[i, j] -= g;
+                        GV.w[j, i] += g;
                     }
                 }
             }
+
             GV.n += GV.neu;
+        }
+
+        public static void form_s()
+        {
+            for (int i = 1; i <= GV.M; i++)
+                GV.w[i, 0] = new Complex(0, 0);
+            if (GV.lp != 0)
+                GV.w[GV.lp, 0] = new Complex(-1, 0);
+            if (GV.lm != 0)
+                GV.w[GV.lm, 0] = new Complex(1, 0);
         }
     }
 }
