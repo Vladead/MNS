@@ -15,20 +15,20 @@ namespace KS
         {
             FileAction file = new FileAction();
 
-            switch (GlobalValues.k)
+            switch (GV.k)
             {
                 case 0:
-                    GlobalValues.filename = m_file.Text;
-                    if (GlobalValues.filename != "")
-                        file.fileout(GlobalValues.filename);
+                    GV.filename = m_file.Text;
+                    if (GV.filename != "")
+                        file.fileout(GV.filename);
                     else
                         MessageBox.Show("Введите имя файла");
                     break;
                 case 1:
-                    GlobalValues.filename = m_file.Text;
+                    GV.filename = m_file.Text;
                     try
                     {
-                        file.filein(GlobalValues.filename);
+                        file.filein(GV.filename);
                     }
                     catch (Exception ex)
                     {
@@ -44,28 +44,28 @@ namespace KS
     {
         public void fileout(String filename)      //Вывод описания схемы в файл
         {
-            StreamWriter fout = new StreamWriter(GlobalValues.filename);
+            StreamWriter fout = new StreamWriter(GV.filename);
             String str = "";
             int i;
-            str = GlobalValues.nv.ToString() + " " + GlobalValues.nr.ToString() + " " + GlobalValues.nc.ToString() + " " + GlobalValues.nl.ToString();
+            str = GV.nv.ToString() + " " + GV.nr.ToString() + " " + GV.nc.ToString() + " " + GV.nl.ToString();
 
             fout.WriteLine(str);
-            for (i = 1; i <= GlobalValues.nr; i++)
+            for (i = 1; i <= GV.nr; i++)
             {
-                str = GlobalValues.in_r[i, 0].ToString() + " " + GlobalValues.in_r[i, 1].ToString() + " "
-                    + GlobalValues.z_r[i].ToString();
+                str = GV.in_r[i, 0].ToString() + " " + GV.in_r[i, 1].ToString() + " "
+                    + GV.z_r[i].ToString();
                 fout.WriteLine(str);
             }
-            for (i = 1; i <= GlobalValues.nc; i++)
+            for (i = 1; i <= GV.nc; i++)
             {
-                str = GlobalValues.in_c[i, 0].ToString() + " " + GlobalValues.in_c[i, 1].ToString() + " "
-                    + GlobalValues.z_c[i].ToString();
+                str = GV.in_c[i, 0].ToString() + " " + GV.in_c[i, 1].ToString() + " "
+                    + GV.z_c[i].ToString();
                 fout.WriteLine(str);
             }
-            for (i = 1; i <= GlobalValues.nl; i++)
+            for (i = 1; i <= GV.nl; i++)
             {
-                str = GlobalValues.in_l[i, 0].ToString() + " " + GlobalValues.in_l[i, 1].ToString() + " "
-                    + GlobalValues.z_l[i].ToString();
+                str = GV.in_l[i, 0].ToString() + " " + GV.in_l[i, 1].ToString() + " "
+                    + GV.z_l[i].ToString();
                 fout.WriteLine(str);
 
             }
@@ -75,39 +75,39 @@ namespace KS
 
         public void filein(String filename)      //Ввод описания схемы из файла
         {
-            StreamReader fin = new StreamReader(GlobalValues.filename);
+            StreamReader fin = new StreamReader(GV.filename);
             char[] sep = { ' ' };
             string str = "";
             str = fin.ReadLine();
             String[] s = str.Split(sep, 4);//Значение второго аргумента!!!
-            GlobalValues.nv = Int32.Parse(s[0]);
-            GlobalValues.nr = Int32.Parse(s[1]);
-            GlobalValues.nc = Int32.Parse(s[2]);
-            GlobalValues.nl = Int32.Parse(s[3]);
+            GV.nv = Int32.Parse(s[0]);
+            GV.nr = Int32.Parse(s[1]);
+            GV.nc = Int32.Parse(s[2]);
+            GV.nl = Int32.Parse(s[3]);
 
-            for (int i = 1; i <= GlobalValues.nr; i++)
+            for (int i = 1; i <= GV.nr; i++)
             {
                 str = fin.ReadLine();
                 s = str.Split(sep, 3);
-                GlobalValues.in_r[i, 0] = Int32.Parse(s[0]);
-                GlobalValues.in_r[i, 1] = Int32.Parse(s[1]);
-                GlobalValues.z_r[i] = Single.Parse(s[2]);
+                GV.in_r[i, 0] = Int32.Parse(s[0]);
+                GV.in_r[i, 1] = Int32.Parse(s[1]);
+                GV.z_r[i] = Single.Parse(s[2]);
             }
-            for (int i = 1; i <= GlobalValues.nc; i++)
+            for (int i = 1; i <= GV.nc; i++)
             {
                 str = fin.ReadLine();
                 s = str.Split(sep, 3);
-                GlobalValues.in_c[i, 0] = Int32.Parse(s[0]);
-                GlobalValues.in_c[i, 1] = Int32.Parse(s[1]);
-                GlobalValues.z_c[i] = Single.Parse(s[2]);
+                GV.in_c[i, 0] = Int32.Parse(s[0]);
+                GV.in_c[i, 1] = Int32.Parse(s[1]);
+                GV.z_c[i] = Single.Parse(s[2]);
             }
-            for (int i = 1; i <= GlobalValues.nl; i++)
+            for (int i = 1; i <= GV.nl; i++)
             {
                 str = fin.ReadLine();
                 s = str.Split(sep, 3);
-                GlobalValues.in_l[i, 0] = Int32.Parse(s[0]);
-                GlobalValues.in_l[i, 1] = Int32.Parse(s[1]);
-                GlobalValues.z_l[i] = Single.Parse(s[2]);
+                GV.in_l[i, 0] = Int32.Parse(s[0]);
+                GV.in_l[i, 1] = Int32.Parse(s[1]);
+                GV.z_l[i] = Single.Parse(s[2]);
             }
 
             fin.Close();

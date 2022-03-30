@@ -44,6 +44,7 @@ namespace KS
             this.ID_SYS = new System.Windows.Forms.ToolStripMenuItem();
             this.ID_INTERNET = new System.Windows.Forms.ToolStripMenuItem();
             this.ID_EXIT = new System.Windows.Forms.ToolStripMenuItem();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -168,11 +169,20 @@ namespace KS
             this.ID_EXIT.Text = "Выход";
             this.ID_EXIT.Click += new System.EventHandler(this.ID_EXIT_Click);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(12, 27);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(776, 411);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
+            // 
             // KsDlg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "KsDlg";
@@ -201,6 +211,7 @@ namespace KS
         private System.Windows.Forms.ToolStripMenuItem ID_EXIT;
         private System.Windows.Forms.ToolStripMenuItem ID_CONS;
         private System.Windows.Forms.ToolStripMenuItem ID_FILE;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

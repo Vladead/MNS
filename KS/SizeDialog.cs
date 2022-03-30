@@ -17,10 +17,12 @@ namespace KS
 
         private void OK_Click(object sender, EventArgs e)
         {
-            GlobalValues.nv = Int32.Parse(m_nv.Text);
-            GlobalValues.nr = Int32.Parse(m_nr.Text);
-            GlobalValues.nc = Int32.Parse(m_nc.Text);
-            GlobalValues.nl = Int32.Parse(m_nl.Text);
+            GV.nv = Int32.Parse(m_nv.Text);
+            GV.nr = Int32.Parse(m_nr.Text);
+            GV.nc = Int32.Parse(m_nc.Text);
+            GV.nl = Int32.Parse(m_nl.Text);
+            GV.nju = Int32.Parse(m_ju.Text);
+            GV.nei = Int32.Parse(m_ei.Text);
             Close();
         }
     }

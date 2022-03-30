@@ -38,13 +38,13 @@ namespace KS
             this.label4 = new System.Windows.Forms.Label();
             this.m_nc = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.m_ei = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.m_ju = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -141,14 +141,14 @@ namespace KS
             this.label5.TabIndex = 15;
             this.label5.Text = "ИНУТ";
             // 
-            // textBox4
+            // m_ei
             // 
-            this.textBox4.Location = new System.Drawing.Point(12, 215);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.PlaceholderText = "0";
-            this.textBox4.Size = new System.Drawing.Size(100, 23);
-            this.textBox4.TabIndex = 14;
-            this.textBox4.Text = "0";
+            this.m_ei.Location = new System.Drawing.Point(12, 215);
+            this.m_ei.Name = "m_ei";
+            this.m_ei.PlaceholderText = "0";
+            this.m_ei.Size = new System.Drawing.Size(100, 23);
+            this.m_ei.TabIndex = 14;
+            this.m_ei.Text = "0";
             // 
             // label6
             // 
@@ -195,14 +195,14 @@ namespace KS
             this.label8.TabIndex = 9;
             this.label8.Text = "ИТУН";
             // 
-            // textBox7
+            // m_ju
             // 
-            this.textBox7.Location = new System.Drawing.Point(12, 128);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.PlaceholderText = "0";
-            this.textBox7.Size = new System.Drawing.Size(100, 23);
-            this.textBox7.TabIndex = 8;
-            this.textBox7.Text = "0";
+            this.m_ju.Location = new System.Drawing.Point(12, 128);
+            this.m_ju.Name = "m_ju";
+            this.m_ju.PlaceholderText = "0";
+            this.m_ju.Size = new System.Drawing.Size(100, 23);
+            this.m_ju.TabIndex = 8;
+            this.m_ju.Text = "0";
             // 
             // label9
             // 
@@ -341,13 +341,13 @@ namespace KS
             this.Controls.Add(this.label14);
             this.Controls.Add(this.textBox13);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.m_ei);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.m_ju);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.m_nl);
             this.Controls.Add(this.label4);
@@ -374,13 +374,13 @@ namespace KS
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox m_nc;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox m_ei;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox m_ju;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label10;

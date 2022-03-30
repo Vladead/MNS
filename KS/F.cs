@@ -47,34 +47,34 @@ namespace KS
             switch (m_f)
             {
                 case 0:
-                    GlobalValues.f[1] = Convert.ToSingle(IDC_F1.Text, CultureInfo.InvariantCulture);
-                    GlobalValues.nf = 1;
+                    GV.f[1] = Convert.ToSingle(IDC_F1.Text, CultureInfo.InvariantCulture);
+                    GV.nf = 1;
                     break;
                 case 1:
-                    fmin = GlobalValues.f[1] = Convert.ToSingle(IDC_F1.Text, CultureInfo.InvariantCulture);
+                    fmin = GV.f[1] = Convert.ToSingle(IDC_F1.Text, CultureInfo.InvariantCulture);
                     fmax = Convert.ToSingle(IDC_F2.Text, CultureInfo.InvariantCulture);
                     df = Convert.ToSingle(IDC_F3.Text, CultureInfo.InvariantCulture);
                     kf = 1;
-                    while (GlobalValues.f[kf] < fmax)
+                    while (GV.f[kf] < fmax)
                     {
-                        GlobalValues.f[kf + 1] = GlobalValues.f[kf] + df;
+                        GV.f[kf + 1] = GV.f[kf] + df;
                         kf = kf + 1;
                     }
 
-                    GlobalValues.nf = kf;
+                    GV.nf = kf;
                     break;
                 case 2:
-                    GlobalValues.f[1] = Convert.ToSingle(IDC_F1.Text, CultureInfo.InvariantCulture);
+                    GV.f[1] = Convert.ToSingle(IDC_F1.Text, CultureInfo.InvariantCulture);
                     fmax = Convert.ToSingle(IDC_F2.Text, CultureInfo.InvariantCulture);
                     kk = Convert.ToSingle(IDC_F3.Text, CultureInfo.InvariantCulture);
                     kf = 1;
-                    while (GlobalValues.f[kf] < fmax)
+                    while (GV.f[kf] < fmax)
                     {
-                        GlobalValues.f[kf + 1] = kk * GlobalValues.f[kf];
+                        GV.f[kf + 1] = kk * GV.f[kf];
                         kf = kf + 1;
                     }
 
-                    GlobalValues.nf = kf;
+                    GV.nf = kf;
                     break;
             }
 

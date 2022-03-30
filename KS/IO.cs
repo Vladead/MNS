@@ -17,10 +17,10 @@ namespace KS
 
         private void IDC_IOOK_BUTTON_Click(object sender, EventArgs e)
         {
-            GlobalValues.lp = Int32.Parse(m_lp.Text);
-            GlobalValues.lm = Int32.Parse(m_lm.Text);
-            GlobalValues.kp = Int32.Parse(m_kp.Text);
-            GlobalValues.km = Int32.Parse(m_km.Text);
+            GV.lp = Int32.Parse(m_lp.Text);
+            GV.lm = Int32.Parse(m_lm.Text);
+            GV.kp = Int32.Parse(m_kp.Text);
+            GV.km = Int32.Parse(m_km.Text);
             this.Close();
 
         }

@@ -22,25 +22,37 @@ namespace KS
             size.ShowDialog(this);
             size.Dispose();
             // Вызов диалоговой панели R
-            if (GlobalValues.nr > 0)
+            if (GV.nr > 0)
             {
                 R ir = new R();
                 ir.ShowDialog(this);
                 ir.Dispose();
             }
             // Вызов диалоговой панели C
-            if (GlobalValues.nc > 0)
+            if (GV.nc > 0)
             {
                 C ir = new C();
                 ir.ShowDialog(this);
                 ir.Dispose();
             }
             // Вызов диалоговой панели L
-            if (GlobalValues.nl > 0)
+            if (GV.nl > 0)
             {
                 L ir = new L();
                 ir.ShowDialog(this);
                 ir.Dispose();
+            }
+            if (GV.nei > 0)
+            {
+                EI ei = new EI();
+                ei.ShowDialog(this);
+                ei.Dispose();
+            }
+            if (GV.nju > 0)
+            {
+                JU ju = new JU();
+                ju.ShowDialog(this);
+                ju.Dispose();
             }
 
             DialogResult res = MessageBox.Show("Выводить описание схемы в файл?",
@@ -48,7 +60,7 @@ namespace KS
             if (res == DialogResult.Yes)
             {
                 FILE ofile = new FILE();
-                GlobalValues.k = 0;
+                GV.k = 0;
                 ofile.ShowDialog(this);
                 ofile.Dispose();
             }
@@ -70,7 +82,7 @@ namespace KS
 
         private void ID_FILE_Click(object sender, EventArgs e)
         {
-            GlobalValues.k = 1;
+            GV.k = 1;
             FILE file = new FILE();
             try
             {
@@ -106,17 +118,17 @@ namespace KS
 
         private void ID_SYS_Click(object sender, EventArgs e)
         {
-            GlobalValues.flag = true;
+            GV.flag = true;
         }
 
         private void ID_PRIV_Click(object sender, EventArgs e)
         {
-            GlobalValues.flag = false;
+            GV.flag = false;
         }
 
         private void ID_INTERNET_Click(object sender, EventArgs e)
         {
-            if (!GlobalValues.flag)
+            if (!GV.flag)
             {
                 INT cint = new INT();
                 cint.Show(this);
@@ -129,26 +141,63 @@ namespace KS
 
         private void ID_CALC_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i <= GlobalValues.M; i++)
+            for (int i = 0; i <= GV.M; i++)
                 //Обнуление массивов a и b
-                for (int j = 0; j <= GlobalValues.M; j++)
+                for (int j = 0; j <= GV.M; j++)
                 {
-                    GlobalValues.a[i, j] = 0;
-                    GlobalValues.b[i, j] = 0;
+                    GV.a[i, j] = 0;
+                    GV.b[i, j] = 0;
                 }
-            GlobalValues.n = GlobalValues.nv;
-            for (int kf = 1; kf <= GlobalValues.nf; kf++)
+            GV.n = GV.nv;
+            for (int kf = 1; kf <= GV.nf; kf++)
             {
-                GlobalValues.om = (float)(2 * 3.141593 * GlobalValues.f[kf]);
-                FormElement.form1_d(ref GlobalValues.in_r, ref GlobalValues.z_r, GlobalValues.nr, 'R');
-                FormElement.form1_d(ref GlobalValues.in_c, ref GlobalValues.z_c, GlobalValues.nc, 'C');
-                FormElement.form1_d(ref GlobalValues.in_l, ref GlobalValues.z_l, GlobalValues.nl, 'L');
+                GV.om = (float)(2 * 3.141593 * GV.f[kf]);
+                FormElement.form1_d(ref GV.in_r, ref GV.z_r, GV.nr, 'R');
+                FormElement.form1_d(ref GV.in_c, ref GV.z_c, GV.nc, 'C');
+                FormElement.form1_d(ref GV.in_l, ref GV.z_l, GV.nl, 'L');
+                
                 //…
                 FormElement.form_w();
-                var temp = GlobalValues.w;
+                
+                if ((GV.lp == 1) && (GV.lm == 0) && (GV.kp == 2) && (GV.km == 0))
+                {
+                    SF.st();
+                    SF.sf1(kf);
+                }
+                else
+                {
+                    SF.gauss_c();
+                    SF.sf2(kf);
+                }
                 //…
             }
 
+            string str = "";
+            str = "Результаты моделирования ";
+            richTextBox1.AppendText(str + "\r\n");
+            if ((GV.lp == 1) && (GV.lm == 0) && (GV.kp == 2) && (GV.km == 0))
+            {
+                str = String.Format("{0,-12}{1,-12}{2,-12}{3,-12}{4,-12}{5,-12}{6,-12}", "f кГц", "kum", "kua", "rim", "ria", "rom", "roa");
+                richTextBox1.AppendText(str + "\r\n");
+                for (int kf = 1; kf <= GV.nf; kf++)
+                {
+                    str = String.Format("{0,-12:F2}{1,-12:E2}{2,-12:F2}{3,-12:E2}{4,-12:F2}{5,-12:E2}{6,-12:F2}",
+                    GV.f[kf], GV.kum[kf], GV.kua[kf], GV.rim[kf],
+                    GV.ria[kf], GV.rom[kf], GV.roa[kf]);
+                    richTextBox1.AppendText(str + "\r\n");
+                }
+            }
+            else
+            {
+                str = String.Format("{0,-12}{1,-12}{2,-12}{3,-12}{4,-12}", "f кГц", "kum", "kua", "rim", "ria");
+                richTextBox1.AppendText(str + "\r\n");
+                for (int kf = 1; kf <= GV.nf; kf++)
+                {
+                    str = String.Format("{0,-12:F2}{1,-12:E2}{2,-12:F2}{3,-12:E2}{4,-12:F2}",
+                    GV.f[kf], GV.kum[kf], GV.kua[kf], GV.rim[kf], GV.ria[kf]);
+                    richTextBox1.AppendText(str + "\r\n");
+                }
+            }
         }
     }
 }
