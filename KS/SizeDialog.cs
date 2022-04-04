@@ -26,6 +26,7 @@ namespace KS
             GV.nji = Int32.Parse(m_ji.Text);
             GV.ntri = Int32.Parse(m_tri.Text);
             GV.neu = Int32.Parse(m_eu.Text);
+            GV.nou = Int32.Parse(m_nou.Text);
             Close();
         }
     }

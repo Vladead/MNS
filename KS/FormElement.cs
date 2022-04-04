@@ -40,26 +40,26 @@ namespace KS
             int i, j, l, m, g;
             if (td != 'L')
                 for (int kd = 1; kd <= nd; kd++)
-                for (l = 0; l <= 1; l++)
-                {
-                    i = in_d[kd, l];
-                    if (i == 0) continue;
-                    for (m = 0; m <= 1; m++)
+                    for (l = 0; l <= 1; l++)
                     {
-                        j = in_d[kd, m];
-                        if (j == 0) continue;
-                        g = (1 - 2 * l) * (1 - 2 * m);
-                        switch (td)
+                        i = in_d[kd, l];
+                        if (i == 0) continue;
+                        for (m = 0; m <= 1; m++)
                         {
-                            case 'R':
-                                GV.a[i, j] += g / z_d[kd];
-                                break;
-                            case 'C':
-                                GV.b[i, j] += g * z_d[kd];
-                                break;
+                            j = in_d[kd, m];
+                            if (j == 0) continue;
+                            g = (1 - 2 * l) * (1 - 2 * m);
+                            switch (td)
+                            {
+                                case 'R':
+                                    GV.a[i, j] += g / z_d[kd];
+                                    break;
+                                case 'C':
+                                    GV.b[i, j] += g * z_d[kd];
+                                    break;
+                            }
                         }
                     }
-                }
             else
             {
                 for (int kd = 1; kd <= nd; kd++)
@@ -161,18 +161,18 @@ namespace KS
         {
             int i, j, g;
             for (int kju = 1; kju <= GV.nju; kju++)
-            for (int l = 2; l <= 3; l++)
-            {
-                i = GV.in_ju[kju, l];
-                if (i == 0) continue;
-                for (int m = 0; m <= 1; m++)
+                for (int l = 2; l <= 3; l++)
                 {
-                    j = GV.in_ju[kju, m];
-                    if (j == 0) continue;
-                    g = (5 - 2 * l) * (l - 2 * m);
-                    GV.w[i, j] += g * GV.z_ju[kju, 0];
+                    i = GV.in_ju[kju, l];
+                    if (i == 0) continue;
+                    for (int m = 0; m <= 1; m++)
+                    {
+                        j = GV.in_ju[kju, m];
+                        if (j == 0) continue;
+                        g = (5 - 2 * l) * (l - 2 * m);
+                        GV.w[i, j] += g * GV.z_ju[kju, 0];
+                    }
                 }
-            }
         }
 
         //Формирование комплексных частных матриц ИНУТ
@@ -262,6 +262,53 @@ namespace KS
             }
 
             GV.n += GV.neu;
+        }
+
+        public static void form_ou()
+        {
+            Complex[,] y = new Complex[5, 5];
+            int[,] in_d = new int[2, 2] { { 1, 2 }, { 3, 4 } };
+            int[] in_ju = new int[4] { 1, 2, 4, 3 };
+
+            for (int kou = 1; kou <= GV.nou; kou++)
+            {
+                for (int i = 1; i <= 4; i++)
+                    for (int j = 1; j <= 4; j++)
+                        y[i, j] = new Complex(0, 0);
+                for (int k = 0; k <= 1; k++)
+                    for (int l = 0; l <= 1; l++)
+                    {
+                        int i = in_d[k, l];
+                        for (int m = 0; m <= 1; m++)
+                        {
+                            int j = in_d[k, m];
+                            int g = (1 - 2 * l) * (1 - 2 * m);
+                            y[i, j] += g / GV.z_ou[kou, k];
+                        }
+                    }
+                Complex ys = GV.z_ou[kou, 2] / (1 + GV.s * 0.16 * GV.z_ou[kou, 2] / GV.z_ou[kou, 3]) / GV.z_ou[kou, 1];
+                for (int l = 2; l <= 3; l++)
+                {
+                    int i = in_ju[l];
+                    for (int m = 0; m <= 1; m++)
+                    {
+                        int j = in_ju[m];
+                        int g = (1 - 2 * m) * (5 - 2 * l);
+                        y[i, j] += g * ys;
+                    }
+                }
+                for (int i = 1; i <= 4; i++)
+                {
+                    int ii = GV.in_ou[kou, i];
+                    if (ii == 0) continue;
+                    for (int j = 1; j <= 4; j++)
+                    {
+                        int jj = GV.in_ou[kou, j];
+                        if (jj == 0) continue;
+                        GV.w[ii, jj] += y[i, j];
+                    }
+                }
+            }
         }
 
         public static void form_s()

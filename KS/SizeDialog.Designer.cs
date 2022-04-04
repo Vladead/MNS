@@ -52,7 +52,7 @@ namespace KS
             this.label11 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.m_nou = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -267,14 +267,14 @@ namespace KS
             this.label12.TabIndex = 21;
             this.label12.Text = "Опер. усилители";
             // 
-            // textBox11
+            // m_nou
             // 
-            this.textBox11.Location = new System.Drawing.Point(265, 73);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.PlaceholderText = "0";
-            this.textBox11.Size = new System.Drawing.Size(100, 23);
-            this.textBox11.TabIndex = 20;
-            this.textBox11.Text = "0";
+            this.m_nou.Location = new System.Drawing.Point(265, 73);
+            this.m_nou.Name = "m_nou";
+            this.m_nou.PlaceholderText = "0";
+            this.m_nou.Size = new System.Drawing.Size(100, 23);
+            this.m_nou.TabIndex = 20;
+            this.m_nou.Text = "0";
             // 
             // label13
             // 
@@ -335,7 +335,7 @@ namespace KS
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.m_nou);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox12);
             this.Controls.Add(this.label14);
@@ -388,7 +388,7 @@ namespace KS
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox m_nou;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label14;

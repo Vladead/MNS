@@ -86,6 +86,12 @@ namespace KS
                     + " " + GV.z_tri[i].ToString();
                 fout.WriteLine(str);
             }
+            for (i = 1; i <= GV.nou; i++)
+            {
+                str = GV.in_ou[i, 1].ToString() + " " + GV.in_ou[i, 2].ToString() + " " + GV.in_ou[i, 3].ToString() + " " + GV.in_ou[i, 4].ToString()
+                    + " " + GV.z_ou[i, 0].ToString() + " " + GV.z_ou[i, 1].ToString() + " " + GV.z_ou[i, 2].ToString() + " " + GV.z_ou[i, 3].ToString();
+                fout.WriteLine(str);
+            }
 
             //...
             fout.Close();
@@ -97,7 +103,7 @@ namespace KS
             char[] sep = { ' ' };
             string str = "";
             str = fin.ReadLine();
-            String[] s = str.Split(sep, 7);//Значение второго аргумента!!!
+            String[] s = str.Split(sep, 8);//Значение второго аргумента!!!
             GV.nv = Int32.Parse(s[0]);
             GV.nr = Int32.Parse(s[1]);
             GV.nc = Int32.Parse(s[2]);
@@ -105,6 +111,7 @@ namespace KS
             GV.nei = Int32.Parse(s[4]);
             GV.neu = Int32.Parse(s[5]);
             GV.ntri = Int32.Parse(s[6]);
+            GV.nou = Int32.Parse(s[7]);
 
             for (int i = 1; i <= GV.nr; i++)
             {
@@ -161,6 +168,19 @@ namespace KS
                 GV.in_tri[i, 2] = Int32.Parse(s[2]);
                 GV.in_tri[i, 3] = Int32.Parse(s[3]);
                 GV.z_tri[i] = Int32.Parse(s[4]);
+            }
+            for (int i = 1; i <= GV.nou; i++)
+            {
+                str = fin.ReadLine();
+                s = str.Split(sep, 8);
+                GV.in_ou[i, 1] = Int32.Parse(s[0]);
+                GV.in_ou[i, 2] = Int32.Parse(s[1]);
+                GV.in_ou[i, 3] = Int32.Parse(s[2]);
+                GV.in_ou[i, 4] = Int32.Parse(s[3]);
+                GV.z_ou[i, 0] = Int32.Parse(s[4]);
+                GV.z_ou[i, 1] = Int32.Parse(s[5]);
+                GV.z_ou[i, 2] = Int32.Parse(s[6]);
+                GV.z_ou[i, 3] = Int32.Parse(s[7]);
             }
 
             fin.Close();

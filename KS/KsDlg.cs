@@ -80,6 +80,13 @@ namespace KS
                 eu.Dispose();
             }
 
+            if (GV.nou > 0)
+            {
+                OU ou = new OU();
+                ou.ShowDialog(this);
+                ou.Dispose();
+            }
+
             DialogResult res = MessageBox.Show("Выводить описание схемы в файл?",
                 "Вывод в файл", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
@@ -185,6 +192,7 @@ namespace KS
                 FormElement.form_ei();
                 FormElement.form_eu();
                 FormElement.form_tri();
+                FormElement.form_ou();
                 FormElement.form_s();
 
                 if ((GV.lp == 1) && (GV.lm == 0) && (GV.kp == 2) && (GV.km == 0))
