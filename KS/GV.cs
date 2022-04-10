@@ -40,9 +40,9 @@ namespace KS
         public static float[,] z_eu = new float[MEU + 1, 3];
         
         //массивы ИТУТ
-        public static int[,] in_ou = new int[MOU + 1, 4];
+        public static int[,] in_ou = new int[MOU + 1, 5];
         // номинал
-        public static float[,] z_ou = new float[MOU + 1, 3];
+        public static float[,] z_ou = new float[MOU + 1, 4];
 
         //массивы ИТУТ
         public static int[,] in_ji = new int[MJI + 1, 4];

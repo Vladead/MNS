@@ -31,6 +31,7 @@ namespace KS
             GV.z_eu[i, 2] = Int32.Parse(m_zmu.Text);
             GV.z_eu[i, 3] = Int32.Parse(m_zft.Text);
             */
+            int p = 0;
             GV.z_ou[i, 0] = float.Parse(m_zri.Text.Replace(',', '.'), NumberStyles.Any, CultureInfo.InvariantCulture);
             GV.z_ou[i, 1] = float.Parse(m_zro.Text.Replace(',', '.'), NumberStyles.Any, CultureInfo.InvariantCulture);
             GV.z_ou[i, 2] = float.Parse(m_zmu.Text.Replace(',', '.'), NumberStyles.Any, CultureInfo.InvariantCulture);
